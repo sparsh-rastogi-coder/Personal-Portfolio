@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
+import MagneticEffect from '@/components/MagneticEffect';
 
 const Hero: React.FC = () => {
   const scrollToAbout = () => {
@@ -41,14 +42,16 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="space-y-6">
-            <Button
-              onClick={scrollToAbout}
-              size="lg"
-              className="bg-gradient-green hover:scale-105 transition-all duration-300 text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl"
-            >
-              Explore My Journey
-              <ArrowDown className="ml-2 h-5 w-5" />
-            </Button>
+            <MagneticEffect strength={0.4}>
+              <Button
+                onClick={scrollToAbout}
+                size="lg"
+                className="bg-gradient-green hover:scale-105 transition-all duration-300 text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl"
+              >
+                Explore My Journey
+                <ArrowDown className="ml-2 h-5 w-5" />
+              </Button>
+            </MagneticEffect>
 
             <div className="flex justify-center space-x-6 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">

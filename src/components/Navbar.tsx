@@ -1,13 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import MagneticEffect from '@/components/MagneticEffect';
 
 interface NavbarProps {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  cursorFollower: boolean;
+  toggleCursorFollower: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
+const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode, cursorFollower, toggleCursorFollower }) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -61,41 +64,58 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, toggleDarkMode }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div 
-            className="text-xl font-bold text-gradient-green cursor-pointer"
-            onClick={() => scrollToSection('hero')}
-          >
-            Sparsh Rastogi
-          </div>
+          <MagneticEffect enabled={cursorFollower}>
+            <div 
+              className="text-xl font-bold text-gradient-green cursor-pointer"
+              onClick={() => scrollToSection('hero')}
+            >
+              Sparsh Rastogi
+            </div>
+          </MagneticEffect>
 
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                  activeSection === item.id
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                {item.label}
-                {activeSection === item.id && (
-                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></div>
-                )}
-              </button>
+              <MagneticEffect key={item.id} enabled={cursorFollower} strength={0.2}>
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
+                    activeSection === item.id
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  {item.label}
+                  {activeSection === item.id && (
+                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></div>
+                  )}
+                </button>
+              </MagneticEffect>
             ))}
           </div>
 
           <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleDarkMode}
-              className="w-9 h-9 p-0"
-            >
-              {darkMode ? '☀️' : '🌙'}
-            </Button>
+            <MagneticEffect enabled={cursorFollower}>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleCursorFollower}
+                className="w-9 h-9 p-0"
+                title="Toggle Cursor Effects"
+              >
+                {cursorFollower ? '✨' : '🖱️'}
+              </Button>
+            </MagneticEffect>
+            
+            <MagneticEffect enabled={cursorFollower}>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleDarkMode}
+                className="w-9 h-9 p-0"
+              >
+                {darkMode ? '☀️' : '🌙'}
+              </Button>
+            </MagneticEffect>
           </div>
         </div>
       </div>
