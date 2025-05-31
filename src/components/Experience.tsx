@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Description } from '@radix-ui/react-toast';
 
 interface CodeforcesUser {
   handle: string;
@@ -20,22 +21,22 @@ const Experience: React.FC = () => {
   useEffect(() => {
     // Simulating API call with mock data
     const mockUserData: CodeforcesUser = {
-      handle: 'sparsh_rastogi',
-      rating: 1657,
-      maxRating: 1742,
-      rank: 'specialist',
-      maxRank: 'specialist'
+      handle: '_gajju',
+      rating: 1662,
+      maxRating: 1662,
+      rank: 'expert',
+      maxRank: 'expert'
     };
 
     const mockRatingHistory = [
-      { contest: 1, rating: 1200, date: '2023-01' },
-      { contest: 2, rating: 1350, date: '2023-02' },
-      { contest: 3, rating: 1420, date: '2023-03' },
-      { contest: 4, rating: 1580, date: '2023-04' },
-      { contest: 5, rating: 1650, date: '2023-05' },
-      { contest: 6, rating: 1742, date: '2023-06' },
-      { contest: 7, rating: 1690, date: '2023-07' },
-      { contest: 8, rating: 1657, date: '2023-08' },
+      { contest: 1, rating: 1200, date: '2024-11' },
+      { contest: 2, rating: 1350, date: '2024-12' },
+      { contest: 3, rating: 1420, date: '2025-01' },
+      { contest: 4, rating: 1580, date: '2025-01' },
+      { contest: 5, rating: 1637, date: '2025-02' },
+      { contest: 6, rating: 1610, date: '2025-03' },
+      { contest: 7, rating: 1662, date: '2025-03' },
+      { contest: 8, rating: 1657, date: '2025-03' },
     ];
 
     setCodeforcesData(mockUserData);
@@ -46,19 +47,20 @@ const Experience: React.FC = () => {
     {
       title: 'Academic Excellence',
       items: [
-        { label: 'JEE Advanced AIR', value: '4792', description: 'Among top 5000 students nationwide' },
-        { label: 'JEE Mains Percentile', value: '99.65', description: 'Exceptional performance in entrance exam' },
+        { label: 'JEE Advanced AIR', value: '6437', description: 'Among top 0.05 students nationwide' },
+        { label: 'JEE Mains Percentile', value: '99.47', description: 'Exceptional performance in entrance exam' },
         { label: 'Current CPI', value: '8.78/10', description: 'Consistent academic performance at IIT Patna' },
-        { label: 'Branch', value: 'Artificial Intelligence', description: 'Specialized in cutting-edge AI technology' },
+        { label: 'Branch', value: 'Artificial Intelligence and Data Science', description:'Best Branch in IIT patna' },
       ]
     },
     {
       title: 'Professional Experience',
       items: [
-        { label: 'WorldQuant', value: 'Research Intern', description: 'Quantitative research and strategy development' },
+        { label: 'WorldQuant', value: 'Research Consultant', description: 'Quantitative research and strategy development' },
         { label: 'Duration', value: '6 months', description: 'Intensive quantitative finance training' },
         { label: 'Focus Area', value: 'Alpha Research', description: 'Development of trading algorithms' },
         { label: 'Impact', value: 'Published Models', description: 'Contributed to production trading systems' },
+        { label: 'Achievment', value: 'International Rank 60 stage 2', description: 'Performed exceptional in IQC 2024 winning 60k througout' }
       ]
     }
   ];
@@ -116,7 +118,7 @@ const Experience: React.FC = () => {
                   <div className="w-4 h-4 bg-gradient-green rounded-full"></div>
                   <div className="flex-1">
                     <div className="font-semibold">2024 - Present</div>
-                    <div className="text-sm text-muted-foreground">Pursuing B.Tech in AI at IIT Patna</div>
+                    <div className="text-sm text-muted-foreground">Pursuing B.Tech in AI DS at IIT Patna</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4 p-4 bg-background/50 rounded-lg">
@@ -130,7 +132,7 @@ const Experience: React.FC = () => {
                   <div className="w-4 h-4 bg-purple-500 rounded-full"></div>
                   <div className="flex-1">
                     <div className="font-semibold">2022</div>
-                    <div className="text-sm text-muted-foreground">JEE Advanced - AIR 4792</div>
+                    <div className="text-sm text-muted-foreground">JEE Advanced - AIR 6347</div>
                   </div>
                 </div>
               </div>
@@ -176,19 +178,19 @@ const Experience: React.FC = () => {
                 <div className="space-y-4">
                   <div className="p-4 bg-background/50 rounded-lg">
                     <div className="font-semibold text-cyan-400">Codeforces</div>
-                    <div className="text-sm text-muted-foreground">Specialist rank with consistent performance</div>
+                    <div className="text-sm text-muted-foreground">expert rank with consistent performance</div>
+                  </div>
+                  <div className="p-4 bg-background/50 rounded-lg">
+                    <div className="font-semibold text-cyan-400">Codeforces</div>
+                    <div className="text-sm text-muted-foreground">250+ problem solved</div>
                   </div>
                   <div className="p-4 bg-background/50 rounded-lg">
                     <div className="font-semibold text-green-400">LeetCode</div>
-                    <div className="text-sm text-muted-foreground">1800+ problems solved</div>
+                    <div className="text-sm text-muted-foreground">200+ problems solved</div>
                   </div>
                   <div className="p-4 bg-background/50 rounded-lg">
                     <div className="font-semibold text-orange-400">AtCoder</div>
                     <div className="text-sm text-muted-foreground">Regular contest participation</div>
-                  </div>
-                  <div className="p-4 bg-background/50 rounded-lg">
-                    <div className="font-semibold text-red-400">CodeChef</div>
-                    <div className="text-sm text-muted-foreground">4-star rating achieved</div>
                   </div>
                 </div>
               </Card>

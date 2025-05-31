@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
         { name: 'Python', level: 90 },
         { name: 'JavaScript', level: 85 },
         { name: 'TypeScript', level: 80 },
-        { name: 'SQL', level: 85 },
+        { name: 'SQL', level: 100 },
       ],
       gradient: 'from-blue-500 to-purple-600'
     },
@@ -23,7 +23,7 @@ const Skills: React.FC = () => {
         { name: 'React', level: 90 },
         { name: 'Tailwind CSS', level: 95 },
         { name: 'Flask', level: 85 },
-        { name: 'MySQL', level: 80 },
+        { name: 'MySQL', level: 100 },
         { name: 'Git', level: 90 },
       ],
       gradient: 'from-green-500 to-teal-600'
@@ -35,8 +35,8 @@ const Skills: React.FC = () => {
         { name: 'AI/ML', level: 88 },
         { name: 'Quantitative Finance', level: 85 },
         { name: 'Web Development', level: 90 },
-        { name: 'Data Structures', level: 95 },
-        { name: 'Algorithms', level: 93 },
+        { name: 'Data Structures', level: 100 },
+        { name: 'Algorithms', level: 100 },
       ],
       gradient: 'from-purple-500 to-pink-600'
     },

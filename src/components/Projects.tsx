@@ -132,7 +132,7 @@ const Projects: React.FC = () => {
               variant="outline"
               size="lg"
               className="bg-gradient-primary text-white border-none hover:scale-105 transition-all duration-300"
-              onClick={() => window.open('https://github.com', '_blank')}
+              onClick={() => window.open('https://github.com/sparsh-rastogi-coder?tab=repositories', '_blank')}
             >
               <Github className="w-5 h-5 mr-2" />
               View All Projects

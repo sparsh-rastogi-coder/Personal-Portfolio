@@ -4,8 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { BarChart, Github , icons, Linkedin, Mail, Twitter } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import emailjs from 'emailjs-com';
+
+
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -25,32 +28,48 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setIsSubmitting(false);
-    }, 1000);
-  };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const result = await emailjs.send(
+      'service_gsbw19u',
+      'template_sm5v8x4',
+      formData, // { name, email, subject, message }
+      'fgROXmpGn6Jxp54BQ' // now called `publicKey`
+    );
+
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  } catch (error) {
+    toast({
+      title: "Error",
+      description: "Something went wrong. Please try again later.",
+      variant: "destructive"
+    });
+  }
+
+  setIsSubmitting(false);
+};
+
 
   const socialLinks = [
     {
       name: 'GitHub',
       icon: Github,
-      url: 'https://github.com',
+      url: 'https://github.com/sparsh-rastogi-coder',
       color: 'hover:text-gray-400'
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/in/sparsh-rastogi-3a72a3285/',
       color: 'hover:text-blue-400'
     },
     {
@@ -62,9 +81,15 @@ const Contact: React.FC = () => {
     {
       name: 'Email',
       icon: Mail,
-      url: 'mailto:sparsh@example.com',
+      url: 'mailto:sparshrastogiclass11@gmail.com',
       color: 'hover:text-red-400'
     },
+    {
+      name:'codeforces',
+      icon: BarChart,
+      url:'https://codeforces.com/profile/_gajju',
+      color: 'hover:text-red-400'
+    }
   ];
 
   return (
@@ -73,7 +98,7 @@ const Contact: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Get In Touch</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities, collaborations, or just having a chat about technology
+            I'm always open to discussing new opportunities, collaborations, internship, or just having a chat about technology
           </p>
         </div>
 
@@ -156,13 +181,13 @@ const Contact: React.FC = () => {
               <h3 className="text-2xl font-bold mb-6 text-gradient">Let's Connect</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Whether you're interested in collaboration, have a project idea, or just want to 
-                discuss the latest trends in AI and quantitative finance, I'd love to hear from you.
+                discuss the latest trends in AI and quantitative finance or web dev, I'd love to hear from you.
               </p>
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-4 p-4 bg-background/50 rounded-lg">
                   <Mail className="w-5 h-5 text-primary" />
-                  <span>sparsh.rastogi@example.com</span>
+                  <span>sparshrastogiclass11a@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-4 p-4 bg-background/50 rounded-lg">
                   <span className="w-5 h-5 text-primary">📍</span>
@@ -192,14 +217,6 @@ const Contact: React.FC = () => {
                   </Button>
                 ))}
               </div>
-            </Card>
-
-            <Card className="p-6 glass-dark text-center">
-              <div className="text-4xl mb-4">☕</div>
-              <h4 className="font-bold mb-2">Coffee Chat?</h4>
-              <p className="text-sm text-muted-foreground">
-                Always up for a virtual coffee chat to discuss ideas and opportunities!
-              </p>
             </Card>
           </div>
         </div>

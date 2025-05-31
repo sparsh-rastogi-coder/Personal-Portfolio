@@ -5,10 +5,13 @@ import { Card } from '@/components/ui/card';
 
 const About: React.FC = () => {
   const handleDownloadResume = () => {
-    // Create a placeholder download action
-    console.log('Downloading resume...');
-    // In a real implementation, this would trigger a download of the actual resume file
-  };
+    const link=document.createElement('a')
+    link.href='/resume_2 (4).pdf'
+    link.download='My_resume.pdf'
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    };
 
   return (
     <section id="about" className="py-20 px-4">
@@ -25,9 +28,11 @@ const About: React.FC = () => {
             <Card className="p-8 glass-dark">
               <div className="space-y-6">
                 <p className="text-lg leading-relaxed">
-                  I'm a dedicated <span className="text-gradient-green font-semibold">AI Researcher</span> and 
-                  <span className="text-gradient font-semibold"> Web Developer</span> currently pursuing Artificial Intelligence 
-                  at IIT Patna. My journey combines deep technical expertise with a passion for quantitative finance.
+                  Hi, I’m Sparsh Rastogi, a <span className="text-gradient-green font-semibold">Artificial Intelligence and Data Science student at IIT Patna</span>, 
+                  with a CPI of 8.78.I have a strong interest in AI/ML, data science, problem-solving, and web development .I am well-versed in C++,
+                  Python, and algorithms, with experience in competitive programming <span className="text-gradient-green font-semibold">
+                  ( Code forces  Expert (1662) )</span>. I enjoy taking on challenging responsibilities and exploring new technologies 
+                  that push my limits.
                 </p>
                 
                 <p className="text-lg leading-relaxed">
@@ -42,8 +47,12 @@ const About: React.FC = () => {
                     <div className="text-sm text-muted-foreground">CPI at IIT Patna</div>
                   </div>
                   <div className="text-center p-4 bg-gradient-primary/10 rounded-lg">
-                    <div className="text-2xl font-bold text-gradient">4792</div>
+                    <div className="text-2xl font-bold text-gradient">6437</div>
                     <div className="text-sm text-muted-foreground">JEE Advanced AIR</div>
+                  </div>
+                  <div className="text-center p-4 bg-gradient-primary/10 rounded-lg">
+                    <div className="text-2xl font-bold text-gradient">6250</div>
+                    <div className="text-sm text-muted-foreground">JEE Mains AIR</div>
                   </div>
                 </div>
               </div>
@@ -71,7 +80,7 @@ const About: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold">IIT Patna</div>
-                    <div className="text-sm text-muted-foreground">B.Tech in Artificial Intelligence</div>
+                    <div className="text-sm text-muted-foreground">B.Tech in Artificial Intelligence and Data Science</div>
                   </div>
                 </div>
 
@@ -81,7 +90,7 @@ const About: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold">WorldQuant</div>
-                    <div className="text-sm text-muted-foreground">Quantitative Research Experience</div>
+                    <div className="text-sm text-muted-foreground">Quantitative Research Consultant Experience</div>
                   </div>
                 </div>
 
@@ -90,7 +99,7 @@ const About: React.FC = () => {
                     🏆
                   </div>
                   <div>
-                    <div className="font-semibold">Codeforces Specialist</div>
+                    <div className="font-semibold">Codeforces Expert</div>
                     <div className="text-sm text-muted-foreground">Competitive Programming Expert</div>
                   </div>
                 </div>
@@ -100,7 +109,7 @@ const About: React.FC = () => {
                     📊
                   </div>
                   <div>
-                    <div className="font-semibold">99.65 Percentile</div>
+                    <div className="font-semibold">99.47 Percentile</div>
                     <div className="text-sm text-muted-foreground">JEE Mains Achievement</div>
                   </div>
                 </div>

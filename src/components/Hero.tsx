@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
           <div className="text-xl md:text-2xl font-medium mb-8 space-y-2">
             <div className="flex flex-wrap justify-center gap-4 text-muted-foreground">
               <span className="bg-gradient-green px-4 py-2 rounded-full text-white font-semibold animate-float">
-                AI Researcher
+                AI ML Enthusiast
               </span>
               <span className="bg-gradient-primary px-4 py-2 rounded-full text-white font-semibold animate-float" style={{ animationDelay: '1s' }}>
                 Web Developer
@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
-                <span>Codeforces Specialist</span>
+                <span>Codeforces Expert</span>
               </div>
             </div>
           </div>
