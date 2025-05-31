@@ -35,11 +35,12 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   try {
     const result = await emailjs.send(
-      'service_gsbw19u',
-      'template_sm5v8x4',
-      formData, // { name, email, subject, message }
-      'fgROXmpGn6Jxp54BQ' // now called `publicKey`
-    );
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
 
     toast({
       title: "Message Sent!",
